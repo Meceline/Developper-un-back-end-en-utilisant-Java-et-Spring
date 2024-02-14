@@ -8,29 +8,28 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.openclassrooms.projet3.model.Rental;
 import com.openclassrooms.projet3.model.User;
-import com.openclassrooms.projet3.service.UserService;
+import com.openclassrooms.projet3.service.RentalService;
 
 @RestController
 @RequestMapping("/api")
-public class UserController {
+public class RentallController {
 
 	@Autowired
-	private UserService userService;
+	private RentalService rentalService;
 	
-	@GetMapping("/users")
-	public Iterable<User> getUser(){
-		return userService.getUsers();
+	@GetMapping("/rentals")
+	public Iterable<Rental> getRentals(){
+		return rentalService.getRentals();
 	}
-	
-	@GetMapping("/user/{id}")
-	public User getUser(@PathVariable("id") final Long id) {
-		Optional<User> user = userService.getUser(id);
-		if(user.isPresent()) {
-			return user.get();
+	@GetMapping("/rentals/{id}")
+	public Rental getRental(@PathVariable("id") final Long id) {
+		Optional<Rental> rental = rentalService.getRental(id);
+		if(rental.isPresent()) {
+			return rental.get();
 		}else{
 			return null;
 		}
 	}
-	
 }
