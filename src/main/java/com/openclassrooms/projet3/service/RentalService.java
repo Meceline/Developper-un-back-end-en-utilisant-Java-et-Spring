@@ -29,5 +29,8 @@ public class RentalService {
 		return savedRental;
 	}
 	
-	
+	public Rental updateRental(Rental rental) {
+		Rental savedRental = rentalRepository.save(rental);
+		return savedRental;
+	}
 }
