@@ -5,21 +5,18 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-<<<<<<< HEAD
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-=======
->>>>>>> 0c1459759b9d182490e0e3968ba6a66fc5433870
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.openclassrooms.projet3.model.Rental;
 import com.openclassrooms.projet3.model.User;
-<<<<<<< HEAD
+
 import com.openclassrooms.projet3.repository.RentalRepository;
-=======
->>>>>>> 0c1459759b9d182490e0e3968ba6a66fc5433870
 import com.openclassrooms.projet3.service.RentalService;
 
 @RestController
@@ -42,7 +39,6 @@ public class RentallController {
 			return null;
 		}
 	}
-<<<<<<< HEAD
 	
 	@PostMapping("/rental")
 	public Rental createRetal(@RequestBody Rental rental) {
@@ -56,6 +52,4 @@ public class RentallController {
 		return rentalService.updateRental(rental);
 	
 	}
-=======
->>>>>>> 0c1459759b9d182490e0e3968ba6a66fc5433870
 }

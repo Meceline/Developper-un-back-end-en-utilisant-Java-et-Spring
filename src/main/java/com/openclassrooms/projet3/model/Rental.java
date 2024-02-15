@@ -26,8 +26,7 @@ public class Rental {
 	private Integer price;
 	
 	private String picture;
-	
-<<<<<<< HEAD
+
 	private String description;
 	
 	@ManyToOne
@@ -38,8 +37,6 @@ public class Rental {
 	
 	private Date updated_at;
 	
-=======
->>>>>>> 0c1459759b9d182490e0e3968ba6a66fc5433870
 	public Long getId() {
 		return id;
 	}
@@ -112,18 +109,6 @@ public class Rental {
 		this.updated_at = updated_at;
 	}
 
-<<<<<<< HEAD
 
-=======
-	private String description;
-	
-	@ManyToOne
-	@JoinColumn(name="owner_id")
-	private User owner;
-	
-	private Date created_at;
-	
-	private Date updated_at;
->>>>>>> 0c1459759b9d182490e0e3968ba6a66fc5433870
 	
 }
