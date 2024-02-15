@@ -24,6 +24,7 @@ public class RentalService {
 		return rentalRepository.findById(id);
 	}
 	
+<<<<<<< HEAD
 	public Rental saveRental(Rental rental) {
 		Rental savedRental = rentalRepository.save(rental);
 		return savedRental;
@@ -33,4 +34,7 @@ public class RentalService {
 		Rental savedRental = rentalRepository.save(rental);
 		return savedRental;
 	}
+=======
+	
+>>>>>>> 0c1459759b9d182490e0e3968ba6a66fc5433870
 }
