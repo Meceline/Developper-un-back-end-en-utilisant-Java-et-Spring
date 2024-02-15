@@ -28,8 +28,8 @@ public class User {
     
     private Date created_at;
     
-    @OneToMany(mappedBy="owner")
-    private List<Rental> rentals = new ArrayList<Rental>();
+    //@OneToMany(mappedBy="owner")
+   // private List<Rental> rentals = new ArrayList<Rental>();
     
     
     public Long getId() {
