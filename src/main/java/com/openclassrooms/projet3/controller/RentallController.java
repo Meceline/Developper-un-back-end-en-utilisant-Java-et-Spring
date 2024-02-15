@@ -43,7 +43,7 @@ public class RentallController {
 	@PostMapping("/rental")
 	public Rental createRetal(@RequestBody Rental rental) {
 		System.out.println("ola");
-		return rentalService.saveRental(rental);	
+		return rentalService.createRental(rental);	
 	}
 	
 	@PutMapping("/rental")

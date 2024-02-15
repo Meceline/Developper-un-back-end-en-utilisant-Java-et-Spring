@@ -24,9 +24,9 @@ public class RentalService {
 		return rentalRepository.findById(id);
 	}
 	
-	public Rental saveRental(Rental rental) {
-		Rental savedRental = rentalRepository.save(rental);
-		return savedRental;
+	public Rental createRental(Rental rental) {
+		Rental createdRental = rentalRepository.save(rental);
+		return createdRental;
 	}
 	
 	public Rental updateRental(Rental rental) {
