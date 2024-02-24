@@ -10,7 +10,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.Data;
 
 @Entity
 @Table(name = "users")
@@ -27,19 +26,14 @@ public class User {
     private String password;
     
     private Date created_at;
-    
+
+	private Date updated_at;
     //@OneToMany(mappedBy="owner")
    // private List<Rental> rentals = new ArrayList<Rental>();
-    @OneToMany(mappedBy="owner")
-    private List<Rental> rentals = new ArrayList<Rental>();
-    
+        
     
     public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getEmail() {
@@ -81,7 +75,5 @@ public class User {
 	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
 	}
-
-	private Date updated_at;
 	
 }

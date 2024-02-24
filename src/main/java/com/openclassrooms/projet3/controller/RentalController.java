@@ -21,7 +21,7 @@ import com.openclassrooms.projet3.service.RentalService;
 
 @RestController
 @RequestMapping("/api")
-public class RentallController {
+public class RentalController {
 
 	@Autowired
 	private RentalService rentalService;

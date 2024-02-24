@@ -25,7 +25,7 @@ public class Rental {
 	
 	private Integer price;
 	
-	private String picture;
+	private String picture; //recup file, copy in folder, get url, save url
 
 	private String description;
 	
@@ -37,12 +37,9 @@ public class Rental {
 	
 	private Date updated_at;
 	
+	
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getName() {
