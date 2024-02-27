@@ -34,6 +34,8 @@ public class Message {
 	
 	private Date updated_at;
 
+	
+	
 	public Rental getRental() {
 		return rental;
 	}
