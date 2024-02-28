@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.openclassrooms.projet3.dto.MessageRequestDTO;
 import com.openclassrooms.projet3.dto.MessageResponseDTO;
-import com.openclassrooms.projet3.model.Message;
 import com.openclassrooms.projet3.service.MessageService;
 
 @RestController
