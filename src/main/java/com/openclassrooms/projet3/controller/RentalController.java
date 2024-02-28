@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.openclassrooms.projet3.dto.RentalDTO;
 import com.openclassrooms.projet3.model.Rental;
 import com.openclassrooms.projet3.model.User;
 
@@ -31,14 +32,13 @@ public class RentalController {
 		return rentalService.getRentals();
 	}
 	@GetMapping("/rentals/{id}")
-	public Rental getRental(@PathVariable("id") final Long id) {
-		Optional<Rental> rental = rentalService.getRental(id);
-		if(rental.isPresent()) {
-			return rental.get();
-		}else{
-			return null;
-		}
+	public RentalDTO getRental(@PathVariable("id") final String id_string) {
+		long id = Long.parseLong(id_string);
+		RentalDTO rental = rentalService.getRental(id);
+		return rental;
 	}
+	
+	
 	
 	@PostMapping("/rental")
 	public Rental createRetal(@RequestBody Rental rental) {
