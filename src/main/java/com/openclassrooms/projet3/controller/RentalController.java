@@ -28,9 +28,10 @@ public class RentalController {
 	private RentalService rentalService;
 	
 	@GetMapping("/rentals")
-	public Iterable<Rental> getRentals(){
+	public Iterable<RentalDTO> getRentals(){
 		return rentalService.getRentals();
 	}
+	
 	@GetMapping("/rentals/{id}")
 	public RentalDTO getRental(@PathVariable("id") final String id_string) {
 		long id = Long.parseLong(id_string);
