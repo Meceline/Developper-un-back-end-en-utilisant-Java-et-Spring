@@ -1,6 +1,7 @@
 package com.openclassrooms.projet3.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,7 +38,6 @@ public class RentalService {
             rentalDTOs.add(rentalDto);
         }
 	       return rentalDTOs;
-//		return rentalRepository.findAll();	
 	}
 	
 	
@@ -60,14 +60,42 @@ public class RentalService {
 	}
 	
 	
-	public Rental createRental(Rental rental) {
-		Rental createdRental = rentalRepository.save(rental);
-		return createdRental;
+	public void createRental(Rental r) {
+		//recoit un rental, sort rien, le message est créé dans le controller
+		Rental rental = new Rental();
+        rental.setName(r.getName());
+        rental.setSurface(r.getSurface());
+        rental.setPrice(r.getPrice());
+        rental.setPicture(r.getPicture());
+        rental.setDescription(r.getDescription());
+        rental.setCreated_at(new Date());
+        rental.setUpdated_at(new Date());
+        
+        User u = new User();
+        u.setId((long) 1);
+        rental.setOwner(u);
+        
+		rentalRepository.save(rental);
 	}
 	
-	public Rental updateRental(Rental rental) {
-		Rental savedRental = rentalRepository.save(rental);
-		return savedRental;
+	public void updateRental(Rental r) {
+		
+		//recoit un rental, sort rien, le message est créé dans le controller
+		Rental rental = new Rental();
+		rental.setId(r.getId());
+        rental.setName(r.getName());
+        rental.setSurface(r.getSurface());
+        rental.setPrice(r.getPrice());
+        rental.setPicture(r.getPicture());
+        rental.setDescription(r.getDescription());
+        rental.setCreated_at(r.getCreated_at());
+        rental.setUpdated_at(new Date());
+        
+        User u = new User();
+        u.setId((long) 1);
+        rental.setOwner(u);
+        
+		rentalRepository.save(rental);
 	}
 
 }

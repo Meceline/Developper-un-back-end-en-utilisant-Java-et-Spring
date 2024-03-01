@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.openclassrooms.projet3.dto.MessageResponseDTO;
 import com.openclassrooms.projet3.dto.RentalDTO;
 import com.openclassrooms.projet3.model.Rental;
 import com.openclassrooms.projet3.model.User;
@@ -42,15 +43,25 @@ public class RentalController {
 	
 	
 	@PostMapping("/rental")
-	public Rental createRetal(@RequestBody Rental rental) {
+	public MessageResponseDTO createRetal(@RequestBody Rental rental) {
 		System.out.println("ola");
-		return rentalService.createRental(rental);	
+		rentalService.createRental(rental);	
+		
+		MessageResponseDTO response = new MessageResponseDTO();
+		response.setMessage("Rental created !");
+		return response;
 	}
 	
+	
+	
 	@PutMapping("/rental")
-	public Rental updateRetal(@RequestBody Rental rental) {
+	public MessageResponseDTO updateRental(@RequestBody Rental rental) {
 		System.out.println("ola");
-		return rentalService.updateRental(rental);
+		rentalService.updateRental(rental);	
+		
+		MessageResponseDTO response = new MessageResponseDTO();
+		response.setMessage("Rental updated !");
+		return response;
 	
 	}
 }

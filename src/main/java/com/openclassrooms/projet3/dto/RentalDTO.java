@@ -6,8 +6,8 @@ public class RentalDTO {
 
 	private Long id;
 	private String name;
-	private Integer surface;
-	private Integer price;
+	private int surface;
+	private int price;
 	private String picture;
 	private String description;
 	private Long owner_id;
@@ -27,16 +27,16 @@ public class RentalDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getSurface() {
+	public int getSurface() {
 		return surface;
 	}
-	public void setSurface(Integer surface) {
+	public void setSurface(int surface) {
 		this.surface = surface;
 	}
-	public Integer getPrice() {
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(Integer price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 	public String getPicture() {
