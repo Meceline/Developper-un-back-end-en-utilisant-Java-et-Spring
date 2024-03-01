@@ -1,5 +1,7 @@
 package com.openclassrooms.projet3.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +19,28 @@ public class RentalService {
 	@Autowired
 	private RentalRepository rentalRepository;
 	
-	public Iterable<Rental> getRentals(){
-		return rentalRepository.findAll()
-;	}
+	public Iterable<RentalDTO> getRentals(){
+		//Recoit rien, sort une list de DTO
+		 Iterable<Rental> rentals = rentalRepository.findAll();
+        List<RentalDTO> rentalDTOs = new ArrayList<>();
+        for (Rental r : rentals) {
+        	RentalDTO rentalDto = new RentalDTO();
+        	rentalDto.setId(r.getId());
+    		rentalDto.setName(r.getName());
+    		rentalDto.setSurface(r.getSurface());
+    		rentalDto.setPrice(r.getPrice());
+    		rentalDto.setPicture(r.getPicture());
+    		rentalDto.setDescription(r.getDescription());
+    		rentalDto.setOwner_id(r.getOwner().getId());
+    		rentalDto.setCreated_at(r.getCreated_at());
+    		rentalDto.setUpdated_at(r.getUpdated_at());
+            rentalDTOs.add(rentalDto);
+        }
+	       return rentalDTOs;
+//		return rentalRepository.findAll();	
+	}
+	
+	
 	
 	public RentalDTO getRental(Long id){
 		RentalDTO rentalDto = new RentalDTO();

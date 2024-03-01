@@ -20,6 +20,7 @@ public class MessageController {
 	public MessageResponseDTO createMessage(@RequestBody MessageRequestDTO message) {
 
 		messageService.createMessage(message);	
+		
 		MessageResponseDTO response = new MessageResponseDTO();
 		response.setMessage("Message send with success");
 		return response;
