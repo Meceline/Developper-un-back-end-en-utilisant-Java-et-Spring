@@ -20,11 +20,11 @@ public class UserService {
 	@Autowired
     private ModelMapper modelMapper;
 	
-	public Iterable<User> getUsers(){
-		return userRepository.findAll();
-	}
+//	public Iterable<User> getUsers(){
+//		return userRepository.findAll();
+//	}
 	
-	public Optional<UserDTO> getUser(Long id){
+	public Optional<UserDTO> getUserById(Long id){
 		return userRepository.findById(id).map(user -> modelMapper.map(user, UserDTO.class));
 	}
 

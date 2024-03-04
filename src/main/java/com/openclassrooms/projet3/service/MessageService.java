@@ -30,8 +30,7 @@ public class MessageService {
 		entity.setMessage(message.getMessage());
 		User user = userRepository.findById(message.getUser_id()).get();
 		entity.setUser(user);
-		
-		
+				
 		Rental rental = rentalRepository.findById(message.getRental_id()).get();
 		entity.setRental(rental);
 		

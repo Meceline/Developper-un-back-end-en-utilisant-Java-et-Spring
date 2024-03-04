@@ -5,11 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/auth")
 public class AuthenticatedController {
-
-//	@GetMapping("/")
-//	public String getGithub() {
-//		return "welcome";
-//	}
+	
+	@GetMapping("/me")
+	public String getUser() {
+		
+		return "";
+	}
 }

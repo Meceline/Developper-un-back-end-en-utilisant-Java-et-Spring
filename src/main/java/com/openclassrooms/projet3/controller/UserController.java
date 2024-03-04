@@ -21,14 +21,14 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping("/users")
-	public Iterable<User> getUser(){
-		return userService.getUsers();
-	}
+//	@GetMapping("/users")
+//	public Iterable<User> getUser(){
+//		return userService.getUsers();
+//	}
 	
 	@GetMapping("/user/{id}")
 	public ResponseEntity<UserDTO>  getUser(@PathVariable("id") final Long id) {
-		Optional<UserDTO> user = userService.getUser(id);
+		Optional<UserDTO> user = userService.getUserById(id);
         return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
 	}
 	

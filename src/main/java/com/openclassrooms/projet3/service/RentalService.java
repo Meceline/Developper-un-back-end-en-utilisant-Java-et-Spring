@@ -12,6 +12,7 @@ import com.openclassrooms.projet3.dto.RentalDTO;
 import com.openclassrooms.projet3.model.Rental;
 import com.openclassrooms.projet3.model.User;
 import com.openclassrooms.projet3.repository.RentalRepository;
+import com.openclassrooms.projet3.repository.UserRepository;
 
 
 @Service
@@ -19,6 +20,9 @@ public class RentalService {
 
 	@Autowired
 	private RentalRepository rentalRepository;
+	@Autowired
+	private UserRepository userRepository;
+	
 	
 	public Iterable<RentalDTO> getRentals(){
 		//Recoit rien, sort une list de DTO
@@ -61,7 +65,7 @@ public class RentalService {
 	
 	
 	public void createRental(Rental r) {
-		//recoit un rental, sort rien, le message est créé dans le controller
+		
 		Rental rental = new Rental();
         rental.setName(r.getName());
         rental.setSurface(r.getSurface());
@@ -80,7 +84,6 @@ public class RentalService {
 	
 	public void updateRental(Rental r) {
 		
-		//recoit un rental, sort rien, le message est créé dans le controller
 		Rental rental = new Rental();
 		rental.setId(r.getId());
         rental.setName(r.getName());
@@ -88,14 +91,18 @@ public class RentalService {
         rental.setPrice(r.getPrice());
         rental.setPicture(r.getPicture());
         rental.setDescription(r.getDescription());
-        rental.setCreated_at(r.getCreated_at());
         rental.setUpdated_at(new Date());
         
+        Date created_at = new Date();
+        created_at = rentalRepository.findCreatedDateByRentalId(r.getId());
+        rental.setCreated_at(created_at);
+        
         User u = new User();
-        u.setId((long) 1);
+        u = rentalRepository.findUserByRentalId(r.getId());
         rental.setOwner(u);
         
 		rentalRepository.save(rental);
 	}
+	
 
 }
