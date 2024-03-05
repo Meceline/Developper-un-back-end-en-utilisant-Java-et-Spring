@@ -26,7 +26,7 @@ public class RentalService {
 	
 	public Iterable<RentalDTO> getRentals(){
 		//Recoit rien, sort une list de DTO
-		 Iterable<Rental> rentals = rentalRepository.findAll();
+		Iterable<Rental> rentals = rentalRepository.findAll();
         List<RentalDTO> rentalDTOs = new ArrayList<>();
         for (Rental r : rentals) {
         	RentalDTO rentalDto = new RentalDTO();
@@ -50,6 +50,7 @@ public class RentalService {
 		RentalDTO rentalDto = new RentalDTO();
 		
 		Rental r = rentalRepository.findById(id).get();
+		
 		rentalDto.setId(r.getId());
 		rentalDto.setName(r.getName());
 		rentalDto.setSurface(r.getSurface());
@@ -82,7 +83,7 @@ public class RentalService {
 		rentalRepository.save(rental);
 	}
 	
-	public void updateRental(Rental r) {
+	public void updateRental(RentalDTO r) {
 		
 		Rental rental = new Rental();
 		rental.setId(r.getId());

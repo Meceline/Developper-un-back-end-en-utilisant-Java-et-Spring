@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,6 +31,47 @@ public class UserController {
 	public ResponseEntity<UserDTO>  getUser(@PathVariable("id") final Long id) {
 		Optional<UserDTO> user = userService.getUserById(id);
         return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+	}
+	
+	@GetMapping("/auth/me")
+	public String me() {
+		/*
+		 * return User
+		 */
+		return "";
+	}
+	
+	@PostMapping("/auth/login")
+	public String login() {
+		/*
+		 * @param LoginRequest {
+			    email: string;
+			    password: string;
+			}
+		 */
+		/*
+		 * return AuthSuccess {
+			    token: string;
+			}
+		 */
+		return "";
+	}
+	
+	@PostMapping("/auth/register")
+	public String register() {
+		/*
+		 * @param RegisterRequest {
+			    email: string;
+			    name: string;
+			    password: string;
+			}
+		 */
+		/*
+		 * return AuthSuccess {
+			    token: string;
+			}
+		 */
+		return "";
 	}
 	
 }

@@ -40,6 +40,8 @@ public class RentalController {
 		return rental;
 	}
 	
+	
+	
 	@PostMapping("/rental")
 	public MessageResponseDTO createRetal(@RequestBody Rental rental) {
 		//TODO Récupérer le user courant  - session ?
@@ -49,11 +51,12 @@ public class RentalController {
 		response.setMessage("Rental created !");
 		return response;
 	}
+		
 	
 	@PutMapping("/rental")
-	public MessageResponseDTO updateRental(@RequestBody Rental rental) {
-		
-		rentalService.updateRental(rental);	
+	public MessageResponseDTO updateRental(@RequestBody RentalDTO rentalDto) {
+
+		rentalService.updateRental(rentalDto);	
 		
 		MessageResponseDTO response = new MessageResponseDTO();
 		response.setMessage("Rental updated !");
