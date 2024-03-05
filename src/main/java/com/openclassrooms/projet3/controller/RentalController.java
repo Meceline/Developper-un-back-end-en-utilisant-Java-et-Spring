@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.openclassrooms.projet3.dto.MessageResponseDTO;
+
 import com.openclassrooms.projet3.dto.RentalDTO;
 import com.openclassrooms.projet3.model.Rental;
 import com.openclassrooms.projet3.model.User;

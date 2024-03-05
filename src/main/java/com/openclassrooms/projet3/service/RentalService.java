@@ -24,25 +24,25 @@ public class RentalService {
 	private UserRepository userRepository;
 	
 	
-	public Iterable<RentalDTO> getRentals(){
-		//Recoit rien, sort une list de DTO
-		Iterable<Rental> rentals = rentalRepository.findAll();
-        List<RentalDTO> rentalDTOs = new ArrayList<>();
-        for (Rental r : rentals) {
-        	RentalDTO rentalDto = new RentalDTO();
-        	rentalDto.setId(r.getId());
-    		rentalDto.setName(r.getName());
-    		rentalDto.setSurface(r.getSurface());
-    		rentalDto.setPrice(r.getPrice());
-    		rentalDto.setPicture(r.getPicture());
-    		rentalDto.setDescription(r.getDescription());
-    		rentalDto.setOwner_id(r.getOwner().getId());
-    		rentalDto.setCreated_at(r.getCreated_at());
-    		rentalDto.setUpdated_at(r.getUpdated_at());
-            rentalDTOs.add(rentalDto);
-        }
-	       return rentalDTOs;
-	}
+//	public Iterable<RentalDTO> getRentals(){
+//		//Recoit rien, sort une list de DTO
+//		Iterable<Rental> rentals = rentalRepository.findAll();
+//        List<RentalDTO> rentalDTOs = new ArrayList<>();
+//        for (Rental r : rentals) {
+//        	RentalDTO rentalDto = new RentalDTO();
+//        	rentalDto.setId(r.getId());
+//    		rentalDto.setName(r.getName());
+//    		rentalDto.setSurface(r.getSurface());
+//    		rentalDto.setPrice(r.getPrice());
+//    		rentalDto.setPicture(r.getPicture());
+//    		rentalDto.setDescription(r.getDescription());
+//    		rentalDto.setOwner_id(r.getOwner().getId());
+//    		rentalDto.setCreated_at(r.getCreated_at());
+//    		rentalDto.setUpdated_at(r.getUpdated_at());
+//            rentalDTOs.add(rentalDto);
+//        }
+//	       return rentalDTOs;
+//	}
 	
 	
 	
@@ -63,6 +63,52 @@ public class RentalService {
 		
 		return rentalDto;
 	}
+
+	public Iterable<RentalDTO> getRentals(){
+		//Recoit rien, sort une list de DTO
+		 Iterable<Rental> rentals = rentalRepository.findAll();
+        List<RentalDTO> rentalDTOs = new ArrayList<>();
+        for (Rental r : rentals) {
+        	RentalDTO rentalDto = new RentalDTO();
+        	rentalDto.setId(r.getId());
+    		rentalDto.setName(r.getName());
+    		rentalDto.setSurface(r.getSurface());
+    		rentalDto.setPrice(r.getPrice());
+    		rentalDto.setPicture(r.getPicture());
+    		rentalDto.setDescription(r.getDescription());
+    		rentalDto.setOwner_id(r.getOwner().getId());
+    		rentalDto.setCreated_at(r.getCreated_at());
+    		rentalDto.setUpdated_at(r.getUpdated_at());
+            rentalDTOs.add(rentalDto);
+        }
+	       return rentalDTOs;
+//		return rentalRepository.findAll();	
+	}
+	
+	
+	
+//	public RentalDTO getRental(Long id){
+//		RentalDTO rentalDto = new RentalDTO();
+//		
+//		Rental r = rentalRepository.findById(id).get();
+//		rentalDto.setId(r.getId());
+//		rentalDto.setName(r.getName());
+//		rentalDto.setSurface(r.getSurface());
+//		rentalDto.setPrice(r.getPrice());
+//		rentalDto.setPicture(r.getPicture());
+//		rentalDto.setDescription(r.getDescription());
+//		rentalDto.setOwner_id(r.getOwner().getId());
+//		rentalDto.setCreated_at(r.getCreated_at());
+//		rentalDto.setUpdated_at(r.getUpdated_at());
+//		
+//		return rentalDto;
+//	}
+	
+	
+//	public Rental createRental(Rental rental) {
+//		Rental createdRental = rentalRepository.save(rental);
+//		return createdRental;
+//	}
 	
 	
 	public void createRental(Rental r) {
